@@ -1,7 +1,19 @@
-export default function Home({ DATA }) {
-   console.log(DATA);
+import Head from "next/head";
 
-   return DATA.map(element => <p>{element.name}</p>);
+import { HomeHeader } from "@components/HomeHeader";
+import { ProductsFilter } from "@components/productsFilter";
+
+export default function Home({ DATA }) {
+
+   return (
+      <>
+         <Head>
+            <title>🍗 Pollo The One 🍗 | Catálogo</title>
+         </Head>
+         <HomeHeader />
+         <ProductsFilter productsList={DATA} />
+      </>
+   );
 }
 
 export async function getStaticProps() {

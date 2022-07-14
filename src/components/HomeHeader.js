@@ -1,7 +1,10 @@
 export function HomeHeader() {
     return (
         <div>
-            <p>Este es el home</p>
+            <h1>The One</h1>
+            <p>Carnes y mas...</p>
+            // bg image
+            <div></div>
         </div>
     )
 }

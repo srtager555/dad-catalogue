@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 
 import styles from "@sass/filterHome.module.sass";
@@ -8,6 +8,16 @@ export function ProductsFilter({ productsList }) {
    const [filterTitle, setFilterTitle] = useState("Filtro");
    const [emptyFilter, setEmptyFilter] = useState(true);
    const [openMenuFilter, setOpenMenuFilter] = useState("");
+
+   const norteno = useRef(null)
+   const sanAntonio = useRef(null)
+   const delicia = useRef(null)
+   const elPorteno = useRef(null)
+   const franks = useRef(null)
+   const polloRey = useRef(null)
+   const toledo = useRef(null)
+
+   const refArray = [norteno, sanAntonio, delicia, elPorteno, franks, polloRey, toledo]
 
    function MenuFilter({ filterTitle }) {
       return (
@@ -33,6 +43,7 @@ export function ProductsFilter({ productsList }) {
                   return (
                      <button
                         className={styles["filter--btn"]}
+                        ref={refArray[index]}
                         key={`${element} - ${index}`}
                         onClick={() => searchProduct(element.marca)}
                      >
@@ -42,7 +53,7 @@ export function ProductsFilter({ productsList }) {
                })}
                {!emptyFilter ? (
                   <button
-                     className={styles["filter--btn"]}
+                     className={`${styles["filter--btn"]} ${styles["clear-filter"]}`}
                      onClick={clearFilter}
                   >
                      Limpiar filtro
@@ -65,6 +76,8 @@ export function ProductsFilter({ productsList }) {
       setEmptyFilter(false);
       setFilterTitle(product);
       setProducts(productsList.filter((element) => element.marca === product));
+
+      setTimeout(() => toggleMenu(), 100);
    }
 
    function toggleMenu() {

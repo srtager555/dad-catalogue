@@ -56,3 +56,38 @@
                 &::after
                     top: 50%
                     transform: rotate(-45deg)
+    
+    .filter--menu
+        position: fixed
+        top: 50%
+        left: 0
+        display: flex
+        justify-content: flex-start
+        align-items: start
+        flex-direction: column
+        width: 100%
+        height: calc(100vh - 60px)
+        padding: 12% 15%
+        background-color: #0f9ac1
+        transition: all 1s ease
+        opacity: 0
+        visibility: hidden
+        z-index: 998
+
+        &.open
+            position: sticky
+            top: calc(0% + 60px)
+            visibility: visible
+            opacity: 1
+
+        .filter--btn
+            font-size: 35px
+            font-family: 'Bitter', serif
+            margin-bottom: 35px 
+            cursor: pointer
+            color: #fff
+            border: none
+            background-color: transparent
+
+            &.clear-filter
+                color: #86e6d0

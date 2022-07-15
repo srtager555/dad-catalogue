@@ -1,0 +1,58 @@
+.filter
+    position: relative
+
+    .filter--navbar
+        position: sticky
+        top: 0px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        width: 100%
+        height: 60px
+        padding: 0 20px 
+        background-color: #0eb1de
+        color: #fff
+        z-index: 999
+
+        .filter--title
+            font-family: 'Edu SA Beginner', cursive
+            font-size: 30px
+
+        .filter--buttonMenu
+            position: relative
+            width: 35px
+            height: 10px
+            border: none
+            background-color: transparent
+            cursor: pointer
+
+            &::before
+                content: '' 
+                position: absolute
+                top: 100%
+                left: 0
+                transform: rotate(0deg)
+                width: 100% 
+                height: 1px
+                background-color: #fff
+
+            &::after
+                content: '' 
+                position: absolute
+                bottom: 100%
+                left: 0
+                transform: rotate(0deg)
+                width: 100% 
+                height: 1px
+                background-color: #fff
+        
+            &.open
+                height: 35px
+
+                &::before
+                    top: 50%
+                    transform: rotate(45deg)
+
+                &::after
+                    top: 50%
+                    transform: rotate(-45deg)

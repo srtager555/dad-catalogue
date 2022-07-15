@@ -34,24 +34,21 @@ export function ProductsFilter({ productsList }) {
 
                <button
                   onClick={toggleMenu}
-                  className={`${styles["filter--buttonMenu"]} ${
-                     openMenuFilter ? styles["open"] : ""
-                  }`}
+                  className={`${styles["filter--buttonMenu"]} ${openMenuFilter ? styles["open"] : ""
+                     }`}
                ></button>
             </div>
             <div
-               className={`${styles["filter--menu"]} ${
-                  openMenuFilter ? styles["open"] : ""
-               }`}
+               className={`${styles["filter--menu"]} ${openMenuFilter ? styles["open"] : ""
+                  }`}
             >
                {productsList.map((element, index) => {
-                  if (element.marca === "") return;
 
                   return (
                      <button
+                        key={`${element.marca} -- ${index}`}
                         className={styles["filter--btn"]}
                         ref={refArray[index]}
-                        key={`${element} - ${index}`}
                         onClick={() => searchProduct(element.marca)}
                      >
                         {element.marca}
@@ -99,33 +96,37 @@ export function ProductsFilter({ productsList }) {
       <div className={styles["filter"]}>
          <MenuFilter filterTitle={filterTitle} />
          <div className={styles["filter__content"]}>
-            {products.map((element) => {
+            {products.map((element, index) => {
+
                return (
-                  <div className={styles["filter__contet--container"]}>
+                  <div
+                     key={`${element.marca} - ${index}`}
+                     className={styles["filter__contet--container"]}
+                  >
                      {emptyFilter ? <h2>{element.marca}</h2> : <></>}
                      {element.products.map((prd, index) => {
-                        return (
-                           <>
-                              <div
-                                 className={styles["filter__content--element"]}
-                                 key={`${element} - ${index}`}
-                              >
-                                 <h3>
-                                    <span
-                                       className={
-                                          styles[
-                                             "filter__content-product_title"
-                                          ]
-                                       }
-                                    >
-                                       {prd.name}{prd.peso != "" ? "/ " : ""}
-                                    </span>
 
-                                    <span>{prd.peso}</span>
-                                 </h3>
-                                 <img src={prd.img} alt={prd.name} />
-                              </div>
-                           </>
+                        return (
+                           <div
+                              className={styles["filter__content--element"]}
+                              key={`${prd.name} --- ${index}`}
+                           >
+                              <h3>
+                                 <span
+                                    className={
+                                       styles[
+                                       "filter__content-product_title"
+                                       ]
+                                    }
+                                 >
+                                    {prd.name}
+                                    {prd.peso != "" ? "/ " : ""}
+                                 </span>
+
+                                 <span>{prd.peso}</span>
+                              </h3>
+                              <img src={prd.img} alt={prd.name} />
+                           </div>
                         );
                      })}
                   </div>

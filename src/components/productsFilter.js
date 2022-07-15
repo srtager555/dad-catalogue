@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image"
 
 export function ProductsFilter({ productsList }) {
    const [products, setProducts] = useState(productsList);
@@ -60,7 +61,7 @@ export function ProductsFilter({ productsList }) {
                                     <span>{prd.name}</span>{" "}
                                     <span>{prd.peso}</span>
                                  </p>
-                                 {/* <p>{prd.marca}</p> */}
+                                 <Image src={prd.img} alt={prd.name} width="64" height="64" />
                               </div>
                            </>
                         );

@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import Image from "next/image";
 
 import styles from "@sass/filterHome.module.sass";
 
@@ -76,6 +75,7 @@ export function ProductsFilter({ productsList }) {
       setEmptyFilter(false);
       setFilterTitle(product);
       setProducts(productsList.filter((element) => element.marca === product));
+      window.scrollTo(0, window.innerHeight)
 
       setTimeout(() => toggleMenu(), 100);
    }
@@ -99,15 +99,13 @@ export function ProductsFilter({ productsList }) {
                                  className={styles["filter__content--element"]}
                                  key={`${element} - ${index}`}
                               >
-                                 <p>
-                                    <span>{prd.name}</span>{" "}
+                                 <h3>
+                                    <span className={styles["filter__content-product_title"]}>{prd.name}</span>{" "}
                                     <span>{prd.peso}</span>
-                                 </p>
-                                 <Image
+                                 </h3>
+                                 <img
                                     src={prd.img}
                                     alt={prd.name}
-                                    width="64"
-                                    height="64"
                                  />
                               </div>
                            </>

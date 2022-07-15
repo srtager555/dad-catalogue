@@ -1,25 +1,38 @@
-import { useState, useEffect } from "react";
-import Image from "next/image"
+import { useState } from "react";
+import Image from "next/image";
+
+import styles from "@sass/filterHome.module.sass";
 
 export function ProductsFilter({ productsList }) {
    const [products, setProducts] = useState(productsList);
    const [filterTitle, setFilterTitle] = useState("Filtro");
    const [emptyFilter, setEmptyFilter] = useState(true);
+   const [openMenuFilter, setOpenMenuFilter] = useState("");
 
    function MenuFilter({ filterTitle }) {
       return (
          <>
-            <div>
-               <span>{filterTitle}</span>
+            <div className={styles["filter--navbar"]}>
+               <span className={styles["filter--title"]}>{filterTitle}</span>
 
-               <div></div>
+               <button
+                  onClick={toggleMenu}
+                  className={`${styles["filter--buttonMenu"]} ${
+                     openMenuFilter ? styles["open"] : ""
+                  }`}
+               ></button>
             </div>
-            <div>
+            <div
+               className={`${styles["filter--menu"]} ${
+                  openMenuFilter ? styles["open"] : ""
+               }`}
+            >
                {productsList.map((element, index) => {
                   if (element.marca === "") return;
 
                   return (
                      <button
+                        className={styles["filter--btn"]}
                         key={`${element} - ${index}`}
                         onClick={() => searchProduct(element.marca)}
                      >
@@ -27,7 +40,16 @@ export function ProductsFilter({ productsList }) {
                      </button>
                   );
                })}
-               {!emptyFilter ? <button onClick={clearFilter}>Limpiar filtro</button> : <></>}
+               {!emptyFilter ? (
+                  <button
+                     className={styles["filter--btn"]}
+                     onClick={clearFilter}
+                  >
+                     Limpiar filtro
+                  </button>
+               ) : (
+                  <></>
+               )}
             </div>
          </>
       );
@@ -35,7 +57,7 @@ export function ProductsFilter({ productsList }) {
 
    function clearFilter() {
       setEmptyFilter(true);
-      setFilterTitle("Filtro")
+      setFilterTitle("Filtro");
       setProducts(productsList);
    }
 
@@ -45,10 +67,14 @@ export function ProductsFilter({ productsList }) {
       setProducts(productsList.filter((element) => element.marca === product));
    }
 
+   function toggleMenu() {
+      setOpenMenuFilter(!openMenuFilter);
+   }
+
    return (
-      <>
+      <div className={styles["filter"]}>
          <MenuFilter filterTitle={filterTitle} />
-         <div>
+         <div className={styles["filter__content"]}>
             {products.map((element) => {
                return (
                   <>
@@ -56,12 +82,20 @@ export function ProductsFilter({ productsList }) {
                      {element.products.map((prd, index) => {
                         return (
                            <>
-                              <div key={`${element} - ${index}`}>
+                              <div
+                                 className={styles["filter__content--element"]}
+                                 key={`${element} - ${index}`}
+                              >
                                  <p>
                                     <span>{prd.name}</span>{" "}
                                     <span>{prd.peso}</span>
                                  </p>
-                                 <Image src={prd.img} alt={prd.name} width="64" height="64" />
+                                 <Image
+                                    src={prd.img}
+                                    alt={prd.name}
+                                    width="64"
+                                    height="64"
+                                 />
                               </div>
                            </>
                         );
@@ -70,6 +104,6 @@ export function ProductsFilter({ productsList }) {
                );
             })}
          </div>
-      </>
+      </div>
    );
 }

@@ -35,7 +35,7 @@ const productos = [
             name: "Jamón de pollo",
             peso: "media libra",
             marca: "Norteño",
-            img: "/image/products/2_norteño_hot_dog_de_pollo_1_libra.jpg",
+            img: "/image/products/2_norteño_jamon_de_pollo_1_2_libra.jpg",
          },
          {
             name: "Nuggets de pollo",
@@ -168,7 +168,7 @@ const productos = [
             name: "Salchica de Pechuga",
             peso: "libra",
             marca: "Pollo Rey",
-            img: "/image/products/2_norteño_hot_dog_de_pollo_1_libra.jpg",
+            img: "/image/products/2_pollo_rey_salchicha_de_pechuga_1_libra.jpg",
          },
       ],
    },

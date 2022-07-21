@@ -137,7 +137,7 @@ const productos = [
       marca: "El porteño",
       products: [
          {
-            name: "Chorizo cervezo",
+            name: "Chorizo cervecero",
             peso: "3 libras",
             marca: "El porteño",
             img: "/image/products/2_el_porteño_chorizo_cervecero_3_libras.jpg",
@@ -205,7 +205,7 @@ const productos = [
       marca: "Carnes y mas...",
       products: [
          {
-            name: "Carcasa de Polla",
+            name: "Carcasa de Pollo",
             peso: "libra",
             marca: "",
             img: "/image/products/1_n_carcasa_de_pollo_1_libra.jpg",

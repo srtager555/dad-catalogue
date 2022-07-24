@@ -9,7 +9,7 @@ export function MenuNavbar({
     setProducts,
 }) {
     const [filterTitle, setFilterTitle] = useState("Filtro");
-        const [openMenuFilter, setOpenMenuFilter] = useState("");
+    const [openMenuFilter, setOpenMenuFilter] = useState("");
 
   const norteno = useRef(null);
   const sanAntonio = useRef(null);
@@ -51,6 +51,18 @@ export function MenuNavbar({
     setOpenMenuFilter(!openMenuFilter);
   }
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+        if(window.screenY < window.innerHeight && openMenuFilter === true)
+            toggleMenu()
+    })
+    
+    return () => 
+        window.removeEventListener("scroll", () => {
+            if(window.screenY < window.innerHeight && openMenuFilter === true)
+                toggleMenu()
+        })
+  })
 
   return (
     <>

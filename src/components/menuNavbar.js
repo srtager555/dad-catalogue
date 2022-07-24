@@ -1,15 +1,57 @@
+import { useState, useRef, useEffect } from "react";
+
 import styles from "@sass/filterHome.module.sass";
 
 export function MenuNavbar({
-  filterTitle,
-  toggleMenu,
-  emptyFilter,
-  productsList,
-  searchProduct,
-  openMenuFilter,
-  clearFilter,
-  refArray
+    emptyFilter,
+    setEmptyFilter,
+    productsList,
+    setProducts,
 }) {
+    const [filterTitle, setFilterTitle] = useState("Filtro");
+        const [openMenuFilter, setOpenMenuFilter] = useState("");
+
+  const norteno = useRef(null);
+  const sanAntonio = useRef(null);
+  const delicia = useRef(null);
+  const elPorteno = useRef(null);
+  const franks = useRef(null);
+  const polloRey = useRef(null);
+  const toledo = useRef(null);
+
+  const refArray = [
+    norteno,
+    sanAntonio,
+    delicia,
+    elPorteno,
+    franks,
+    polloRey,
+    toledo,
+  ];
+
+  function clearFilter() {
+    window.scrollTo(0, window.innerHeight);
+    setEmptyFilter(true);
+    setFilterTitle("Filtro");
+    setProducts(productsList);
+
+    setTimeout(() => toggleMenu(), 100);
+  }
+
+  function searchProduct(product) {
+    setEmptyFilter(false);
+    setFilterTitle(product);
+    setProducts(productsList.filter((element) => element.marca === product));
+    window.scrollTo(0, window.innerHeight);
+
+    setTimeout(() => toggleMenu(), 100);
+  }
+
+  function toggleMenu() {
+    setOpenMenuFilter(!openMenuFilter);
+  }
+
+
   return (
     <>
       <div className={styles["filter--navbar"]}>

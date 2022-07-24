@@ -5,7 +5,9 @@ export function MenuNavbar({
   toggleMenu,
   emptyFilter,
   productsList,
+  searchProduct,
   openMenuFilter,
+  clearFilter,
   refArray
 }) {
   return (

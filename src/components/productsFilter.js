@@ -57,7 +57,9 @@ export function ProductsFilter({ productsList }) {
         toggleMenu={toggleMenu}
         emptyFilter={emptyFilter}
         productsList={productsList}
+        searchProduct={searchProduct}
         openMenuFilter={openMenuFilter}
+        clearFilter={clearFilter}
         refArray={refArray}
       />
       <div className={styles["filter__content"]}>

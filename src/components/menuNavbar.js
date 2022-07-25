@@ -10,6 +10,7 @@ export function MenuNavbar({
 }) {
 	const [filterTitle, setFilterTitle] = useState("Filtro");
 	const [openMenuFilter, setOpenMenuFilter] = useState("");
+	const [showMenu, setShowMenu] = useState("");
 
 	const norteno = useRef(null);
 	const sanAntonio = useRef(null);
@@ -32,7 +33,7 @@ export function MenuNavbar({
 	function clearFilter() {
 		window.scrollTo(0, window.innerHeight);
 		setEmptyFilter(true);
-		setFilterTitle("Filtro");
+		setTimeout(() => setFilterTitle("Filtro"), 1000);
 		setProducts(productsList);
 
 		setTimeout(() => toggleMenu(), 100);
@@ -42,32 +43,45 @@ export function MenuNavbar({
 		setEmptyFilter(false);
 		setFilterTitle(product);
 		setProducts(productsList.filter((element) => element.marca === product));
-		window.scrollTo(0, window.innerHeight);
+		setTimeout(() => window.scrollTo(0, window.innerHeight), 100);
 
 		setTimeout(() => toggleMenu(), 100);
 	}
 
 	function toggleMenu() {
-		setOpenMenuFilter(!openMenuFilter);
+		if (window.scrollY * 1.05 >= window.innerHeight) {
+			setOpenMenuFilter(!openMenuFilter);
+		}
+	}
+
+	function handleScroll() {
+		if (openMenuFilter === true) toggleMenu();
+
+		if (window.innerHeight * 0.95 <= window.scrollY) setShowMenu(true);
+		else setShowMenu(false);
 	}
 
 	useEffect(() => {
-		window.addEventListener("scroll", () => {
-			if (window.screenY < window.innerHeight && openMenuFilter === true)
-				toggleMenu();
-		});
+		window.addEventListener("scroll", handleScroll);
 
-		return () =>
-			window.removeEventListener("scroll", () => {
-				if (window.screenY < window.innerHeight && openMenuFilter === true)
-					toggleMenu();
-			});
+		return () => window.removeEventListener("scroll", handleScroll);
 	});
 
 	return (
 		<>
-			<div className={styles["filter--navbar"]}>
-				<span className={styles["filter--title"]}>{filterTitle}</span>
+			<div
+				className={`${styles["filter--navbar"]}${
+					showMenu ? ` ${styles["show--nav"]}` : ""
+				}`}
+			>
+				<div
+					className={`${styles["filter__container--title"]}${
+						!emptyFilter ? ` ${styles["filter--added"]}` : ""
+					}`}
+				>
+					<h1>The One</h1>
+					<span className={styles["filter--name"]}>{filterTitle}</span>
+				</div>
 
 				<button
 					onClick={toggleMenu}
@@ -81,6 +95,9 @@ export function MenuNavbar({
 					openMenuFilter ? styles["open"] : ""
 				}`}
 			>
+				<h3 className={styles["filter--title"]}>
+					Selecciona una marca a filtrar
+				</h3>
 				{productsList.map((element, index) => {
 					return (
 						<button

@@ -31,7 +31,7 @@ export function MenuNavbar({
 	];
 
 	function clearFilter() {
-		window.scrollTo(0, window.innerHeight);
+		window.scroll({ top: window.innerHeight, left: 0, behavior: "smooth" });
 		setEmptyFilter(true);
 		setTimeout(() => setFilterTitle("Filtro"), 1000);
 		setProducts(productsList);
@@ -43,7 +43,11 @@ export function MenuNavbar({
 		setEmptyFilter(false);
 		setFilterTitle(product);
 		setProducts(productsList.filter((element) => element.marca === product));
-		setTimeout(() => window.scrollTo(0, window.innerHeight), 100);
+		setTimeout(
+			() =>
+				window.scroll({ top: window.innerHeight, left: 0, behavior: "smooth" }),
+			100
+		);
 
 		setTimeout(() => toggleMenu(), 100);
 	}

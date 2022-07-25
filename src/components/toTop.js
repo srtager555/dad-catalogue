@@ -6,7 +6,7 @@ export function BtnToTop() {
 	const [show, setShow] = useState(false);
 
 	function handleClick() {
-		window.scroll({ top: 0, left: window.innerHeight, behavior: "smooth" });
+		window.scroll({ top: window.innerHeight, left: 0, behavior: "smooth" });
 	}
 
 	useEffect(() => {

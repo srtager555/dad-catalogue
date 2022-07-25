@@ -3,15 +3,18 @@
 
     .filter--navbar
         position: sticky
-        top: 0px
+        top: 10px
         display: flex
         justify-content: space-between
         align-items: center
-        width: 100%
+        width: 95%
         height: 60px
         padding: 0 20px
-        background-color: #0eb1de
-        color: #fff
+        margin: 0 auto
+        background-color: #fff
+        box-shadow: 0px 5px 30px #0002
+        border-radius: 10px
+        color: #000
         z-index: 999
 
         .filter--title
@@ -36,7 +39,7 @@
                 width: 100%
                 height: 1px
                 transition: all 1s
-                background-color: #fff
+                background-color: #000
 
             &::after
                 content: ''
@@ -47,7 +50,7 @@
                 width: 100%
                 height: 1px
                 transition: all 1s
-                background-color: #fff
+                background-color: #000
 
             &.open
                 height: 35px
@@ -72,7 +75,7 @@
         width: 100%
         height: calc(100vh - 60px)
         padding: 12% 15%
-        background-color: #0f9ac1
+        background-color: #fff
         transition: all 1s
         opacity: 0
         visibility: hidden
@@ -88,7 +91,7 @@
             font-family: 'Roboto', serif
             margin-bottom: 15px
             cursor: pointer
-            color: #fff
+            color: #000
             border: none
             background-color: transparent
 
@@ -98,7 +101,6 @@
     .filter__content
         width: 90%
         margin: 0 auto
-        padding-top: 50px
         padding-bottom: 100px
 
         .filter__contet--container
@@ -118,7 +120,6 @@
                 align-items: flex-start
                 flex-direction: column
                 width: 100%
-                // height: 75vh
                 margin: 0 auto
                 margin-bottom: 100px
 

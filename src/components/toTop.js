@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import styles from "@sass/btnToTop.module.sass";
+import styles from "@sass/BtnToTop.module.sass";
 
 export function BtnToTop() {
 	const [show, setShow] = useState(false);

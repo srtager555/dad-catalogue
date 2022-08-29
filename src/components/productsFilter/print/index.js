@@ -36,15 +36,19 @@ export function FilterPrint({ productsList }) {
 						>
 							<div className={styles["brand__name"]}>
 								<h2>The One</h2>
-								<span className={styles["brands__name--line"]}></span>
 							</div>
-							<span className={styles["border__line--down"]}></span>
+							<div className={styles["bottom__lane--catalogue"]}>
+								<p>Catalogo</p>
+							</div>
 							{element.map((prd, index) => {
 								return (
 									<div
 										className={styles["filter__content--element"]}
 										key={`${prd.name} --- ${index}`}
 									>
+										<span className={styles["product__brand--name"]}>
+											{prd.marca}
+										</span>
 										<h3>
 											<span className={styles["filter__content-product_title"]}>
 												{prd.name}

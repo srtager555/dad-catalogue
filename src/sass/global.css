@@ -10,3 +10,9 @@
 body {
 	background-color: rgb(252, 251, 245);
 }
+
+@media print {
+	body {
+		background-color: #fff;
+	}
+}

@@ -1,5 +1,10 @@
 import { FilterWeb } from "./website";
+import { FilterPrint } from "./print";
 
 export function ProductsFilter({ productsList, printMode }) {
-	return printMode ? null : <FilterWeb productsList={productsList} />;
+	return printMode ? (
+		<FilterPrint productsList={productsList} />
+	) : (
+		<FilterWeb productsList={productsList} />
+	);
 }

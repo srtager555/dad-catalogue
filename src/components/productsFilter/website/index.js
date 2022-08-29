@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { MenuNavbar } from "./menuNavbar";
+import { MenuNavbar } from "../../menuNavbar";
 
 import styles from "@sass/filterHome.module.sass";
 

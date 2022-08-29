@@ -11,18 +11,18 @@ export default function Home({ DATA }) {
 	const [printMode, setPrintMode] = useState(false);
 
 	useEffect(() => {
-		window.addEventListener("beforePrint", () => {
+		window.addEventListener("beforeprint", () => {
 			setPrintMode(true);
 		});
-		window.addEventListener("afterPrint", () => {
+		window.addEventListener("afterprint", () => {
 			setPrintMode(false);
 		});
 
 		return () => {
-			window.removeEventListener("beforePrint", () => {
+			window.removeEventListener("beforeprint", () => {
 				setPrintMode(true);
 			});
-			window.removeEventListener("afterPrint", () => {
+			window.removeEventListener("afterprint", () => {
 				setPrintMode(false);
 			});
 		};
@@ -34,9 +34,9 @@ export default function Home({ DATA }) {
 				<title>🍗 Pollo The One 🍗 | Catálogo</title>
 			</Head>
 
-			{printMode ? <HomeHeader /> : null}
+			{!printMode ? <HomeHeader /> : null}
 			<ProductsFilter productsList={DATA} printMode={printMode} />
-			{printMode ? <BtnToTop /> : null}
+			{!printMode ? <BtnToTop /> : null}
 		</div>
 	);
 }

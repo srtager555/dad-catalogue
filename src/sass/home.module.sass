@@ -30,3 +30,14 @@
         background-image: url("/image/logo_temporal.png")
         background-position: 50% 50%
         z-index: -1
+
+@media print
+    .container__Home
+        .container__Home_content
+            position: fixed
+            top: 50%
+            left: 15%
+            transform: translateY(-50%)
+
+        .container__Home--simple__BG
+            display: none

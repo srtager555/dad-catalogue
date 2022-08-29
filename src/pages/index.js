@@ -34,7 +34,7 @@ export default function Home({ DATA }) {
 				<title>🍗 Pollo The One 🍗 | Catálogo</title>
 			</Head>
 
-			{!printMode ? <HomeHeader /> : null}
+			<HomeHeader />
 			<ProductsFilter productsList={DATA} printMode={printMode} />
 			{!printMode ? <BtnToTop /> : null}
 		</div>

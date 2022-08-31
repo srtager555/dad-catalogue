@@ -12,15 +12,27 @@ export function FilterPrint({ productsList }) {
 		.flat();
 
 	useEffect(() => {
-		let a = newStructureArray.map((prd, index) => {
-			let quesoConQueso = newStructureArray.slice(index, index + 2);
+		const arrayMaker = (param) => {
+			return newStructureArray
+				.map((el) => {
+					if (el.sausage === param) return el;
+				})
+				.filter((el) => typeof el === "object")
+				.map((prd, index, thisArray) => {
+					let quesoConQueso = thisArray.slice(index, index + 2);
 
-			newStructureArray.splice(index + 1, 1);
+					thisArray.splice(index + 1, 1);
 
-			return quesoConQueso;
-		});
+					return quesoConQueso;
+				})
+				.filter((el) => Array.isArray(el));
+		};
 
-		setNewProductsArray(a);
+		let notSausageProduct = arrayMaker(false);
+
+		let sausageProducts = arrayMaker(true);
+
+		setNewProductsArray([notSausageProduct, sausageProducts].flat());
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -47,15 +59,15 @@ export function FilterPrint({ productsList }) {
 										key={`${prd.name} --- ${index}`}
 									>
 										<span className={styles["product__brand--name"]}>
-											{prd.marca}
+											{prd.brand}
 										</span>
 										<h3>
 											<span className={styles["filter__content-product_title"]}>
 												{prd.name}
-												{prd.peso != "" ? "/ " : ""}
+												{prd.weigth != "" ? "/ " : ""}
 											</span>
 
-											<span>{prd.peso}</span>
+											<span>{prd.weigth}</span>
 										</h3>
 										{/* eslint-disable-next-line @next/next/no-img-element */}
 										<img src={prd.img} alt={prd.name} />

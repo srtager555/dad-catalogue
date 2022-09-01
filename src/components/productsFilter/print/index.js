@@ -56,6 +56,7 @@ export function FilterPrint({ productsList }) {
 								let peso;
 
 								if (prd.weight === "c/u") peso = "paquete";
+								else if (prd.weight === 0.5) peso = "media libra";
 								else if (prd.weight < 2) peso = "libra";
 								else peso = `${prd.weight} libras`;
 

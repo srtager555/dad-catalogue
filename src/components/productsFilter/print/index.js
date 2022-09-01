@@ -53,6 +53,12 @@ export function FilterPrint({ productsList }) {
 								<p>Catalogo</p>
 							</div> */}
 							{element.map((prd, index) => {
+								let peso;
+
+								if (prd.weight === "c/u") peso = "paquete";
+								else if (prd.weight < 2) peso = "libra";
+								else peso = `${prd.weight} libras`;
+
 								return (
 									<div
 										className={styles["filter__content--element"]}
@@ -65,14 +71,7 @@ export function FilterPrint({ productsList }) {
 												</span>
 											)}
 											<h3>{prd.name}</h3>
-											<p>
-												por{" "}
-												{prd.weigth === "c/u"
-													? "paquetes"
-													: prd.weigth < 2
-													? "libra"
-													: `${prd.weight} libras`}
-											</p>
+											<p>por {peso}</p>
 										</div>
 										{/* eslint-disable-next-line @next/next/no-img-element */}
 										<img src={prd.img} alt={prd.name} />

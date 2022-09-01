@@ -261,7 +261,7 @@ const productos = [
 				img: "/image/products/2_toledo_salchica_hot_dog_3.75_libras.jpg",
 			},
 			{
-				name: "Jumbo de  queso",
+				name: "Jumbo de queso",
 				weight: 1,
 				brand: "Toledo",
 				sausage: true,

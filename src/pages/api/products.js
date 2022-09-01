@@ -217,7 +217,7 @@ const productos = [
 			},
 			{
 				name: "Mortadela en rollo",
-				weight: "7 libras",
+				weight: 7,
 				brand: "Franks",
 				sausage: true,
 				img: "/image/products/2_franks_mortadela_7_libras.jpg",
@@ -248,7 +248,7 @@ const productos = [
 			},
 			{
 				name: "Mortadela",
-				weight: " 7 libras",
+				weight: 7,
 				brand: "Toledo",
 				sausage: true,
 				img: "/image/products/2_toledo_mortadela_7_libras.jpg",

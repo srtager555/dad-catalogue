@@ -58,17 +58,22 @@ export function FilterPrint({ productsList }) {
 										className={styles["filter__content--element"]}
 										key={`${prd.name} --- ${index}`}
 									>
-										<span className={styles["product__brand--name"]}>
-											{prd.brand}
-										</span>
-										<h3>
-											<span className={styles["filter__content-product_title"]}>
-												{prd.name}
-												{prd.weigth != "" ? "/ " : ""}
-											</span>
-
-											<span>{prd.weigth}</span>
-										</h3>
+										<div className={styles["product-information"]}>
+											{prd.brand != "" && (
+												<span className={styles["product__brand--name"]}>
+													{prd.brand}
+												</span>
+											)}
+											<h3>{prd.name}</h3>
+											<p>
+												por{" "}
+												{prd.weigth === "c/u"
+													? "paquetes"
+													: prd.weigth < 2
+													? "libra"
+													: `${prd.weight} libras`}
+											</p>
+										</div>
 										{/* eslint-disable-next-line @next/next/no-img-element */}
 										<img src={prd.img} alt={prd.name} />
 									</div>

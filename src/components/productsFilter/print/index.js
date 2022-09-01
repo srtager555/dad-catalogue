@@ -72,7 +72,7 @@ export function FilterPrint({ productsList }) {
 												</span>
 											)}
 											<h3>{prd.name}</h3>
-											<p>por {peso}</p>
+											<p>{peso}</p>
 										</div>
 										{/* eslint-disable-next-line @next/next/no-img-element */}
 										<img src={prd.img} alt={prd.name} />

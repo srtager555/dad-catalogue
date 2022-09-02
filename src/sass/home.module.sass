@@ -1,45 +1,65 @@
-.container__Home
+.container
     display: flex
     justify-content: center
     align-items: center
     flex-direction: column
     height: 100vh
 
-    .container__Home_content
-        .container__Home--Introduction
+    .content
+        .Introduction
             margin-bottom: 20px
             padding-bottom: 10px
             border-bottom: 1px solid #000
 
-            .container__Home--Introduction-title
+            .Introduction-title
                 font-size: 70px
 
-            .container__Home--Introduction-description
+            .Introduction-description
                 font-size: 25px
                 margin-left: 15px
 
-    .container__Home--catalogue
+    .catalogue
         font-size: 18px
         margin-left: 15px
         text-transform: uppercase
 
-    .container__Home--simple__BG
+    .simple__BG
         width: 75%
-        height: 50%
+        height: 100%
         background-size: cover
         background-image: url("/image/logo_temporal.png")
         background-position: 50% 50%
         z-index: -1
 
 @media print
-    .container__Home
+    .container
         position: relative
         width: 100%
-        .container__Home_content
-            position: absolute
-            top: 50%
-            left: 15%
-            transform: translateY(-50%)
+        .content
+            .Introduction
+                text-align: center
+                .Introduction-title
+                    font-size: 100px
+                    text-transform: uppercase
 
-        .container__Home--simple__BG
+                .Introduction-description
+                    font-size: 25px
+                    font-family: 'Edu SA Beginner'
+                    margin-left: 15px
+
+                    span
+                        display: inline-block
+                        position: relative
+                        top: 0.5px
+                        left: -4px
+                        width: 0px
+
+        .catalogue
             display: none
+
+        .simple__BG
+            margin-bottom: 50px
+            background-image: none
+
+            img
+                width: 100%

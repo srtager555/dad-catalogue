@@ -195,7 +195,6 @@
             padding-top: 0px
             padding-bottom: 0px
             width: 100%
-            padding-left: 10%
 
             .filter__contet--container
                 width: 100%
@@ -205,7 +204,15 @@
                 justify-content: space-around
                 align-items: center
                 flex-direction: column
+                padding-left: 10%
                 overflow: hidden
+
+                &:nth-child(1)
+                    padding-left: 10%
+
+                &:nth-child(even)
+                    padding: 0
+                    padding-right: 10%
 
                 .brand__name, .bottom__lane--catalogue
                     position: absolute

@@ -26,7 +26,7 @@ const productos = [
 				weight: 1,
 				brand: "Norteño",
 				sausage: false,
-				img: "/image/products/1_norteño_pollo_entero_libra.jpg",
+				img: "/image/products/1_norteño_pollo_en_cuartos.jpg",
 			},
 			{
 				name: "Pierna con muslo",

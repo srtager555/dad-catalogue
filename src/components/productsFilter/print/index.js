@@ -19,9 +19,9 @@ export function FilterPrint({ productsList }) {
 				})
 				.filter((el) => typeof el === "object")
 				.map((prd, index, thisArray) => {
-					let quesoConQueso = thisArray.slice(index, index + 2);
+					let quesoConQueso = thisArray.slice(index, index + 4);
 
-					thisArray.splice(index + 1, 1);
+					thisArray.splice(index + 1, 3);
 
 					return quesoConQueso;
 				})
@@ -74,8 +74,10 @@ export function FilterPrint({ productsList }) {
 											<h3>{prd.name}</h3>
 											<p>{peso}</p>
 										</div>
-										{/* eslint-disable-next-line @next/next/no-img-element */}
-										<img src={prd.img} alt={prd.name} />
+										<div className={styles["image-container"]}>
+											{/* eslint-disable-next-line @next/next/no-img-element */}
+											<img src={prd.img} alt={prd.name} />
+										</div>
 									</div>
 								);
 							})}

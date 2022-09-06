@@ -202,8 +202,9 @@
                 padding: 5% 0
                 display: flex
                 justify-content: space-around
-                align-items: center
-                flex-direction: column
+                align-items: flex-start
+                flex-direction: row
+                flex-wrap: wrap
                 padding-left: 10%
                 overflow: hidden
 
@@ -249,30 +250,41 @@
 
                 .filter__content--element
                     display: flex
-                    justify-content: space-between
+                    justify-content: flex-start
                     align-items: center
-                    flex-direction: row
-                    width: 100%
+                    flex-direction: column
+                    width: 40%
+                    height: 45%
                     padding: 0
 
-                    &:nth-child(even)
-                        flex-direction: row-reverse
+                    .image-container
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        width: 100%
+                        height: auto
+                        border-radius: 10px
+                        overflow: hidden
 
-                    img
-                        width: 45%
+                        img
+                            border-radius: 0px
+                            border: none
+                            width: 100%
 
                     .product-information
-                        width: 50%
+                        margin-bottom: 10px
+                        width: 100%
+
                         .product__brand--name
                             font-size: 25px
                             font-family: 'Edu SA Beginner'
 
                         h3
                             margin-left: 0px
-                            font-size: 50px
+                            font-size: 30px
                             text-transform: uppercase
                             text-align: start
 
                         p
                             text-transform: uppercase
-                            font-size: 25px
+                            font-size: 20px
